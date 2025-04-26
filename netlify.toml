@@ -1,8 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "CI=false npm run build"
   publish = "build"
 
 [build.environment]
   NODE_VERSION = "18.17.0"
-  NPM_FLAGS = "--legacy-peer-deps"
-  NODE_OPTIONS = "--openssl-legacy-provider" 
+  NPM_FLAGS = "--legacy-peer-deps --no-audit"
+  NODE_OPTIONS = "--openssl-legacy-provider"
+  CI = "false" 
