@@ -1,0 +1,12 @@
+{
+  "title": "TDK",
+  "subtitle": "Your Trusted Partner in Digital Transformation",
+  "description": "We specialize in providing innovative digital solutions to help businesses thrive in the digital age. Our team of experts is dedicated to delivering cutting-edge technology solutions tailored to your needs.",
+  "button": [
+    {
+      "title": "Learn More",
+      "color": "var(--primary-blue)",
+      "link": "/about"
+    }
+  ]
+}

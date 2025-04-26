@@ -1,0 +1,30 @@
+{
+  "title": "Our Solutions",
+  "content": "We offer a wide range of digital solutions designed to meet your business needs:",
+  "items": [
+    {
+      "title": "Web Development",
+      "content": "Custom websites and web applications built with the latest technologies",
+      "image": "/img/img/product/WebDevelopment.png"
+    },
+    {
+      "title": "Mobile App Development",
+      "content": "Native and cross-platform mobile applications for iOS and Android",
+      "image": "/img/img/product/MobileAppDevelopment.png"
+    },
+    {
+      "title": "Game Development",
+      "content": "Game development for all platforms",
+      "image": "/img/img/product/GameDevelopment.png"
+    },
+    {
+      "title": "Digital Marketing",
+      "content": "Comprehensive digital marketing strategies to boost your online presence",
+      "image": "/img/img/product/DigitalMarketing.png"
+    }
+  ],
+  "button": {
+    "title": "View Our Mission",
+    "link": "/mission"
+  }
+}

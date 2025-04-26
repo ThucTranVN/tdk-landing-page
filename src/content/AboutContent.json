@@ -1,0 +1,30 @@
+{
+  "title": "About us",
+  "content": "TDK is a leading digital transformation company dedicated to helping businesses succeed in the digital world. With years of experience and a team of skilled professionals, we deliver innovative solutions that drive growth and efficiency.",
+  "items": [
+    {
+      "title": "Expertise",
+      "content": "Our team consists of industry experts with deep knowledge in various digital domains.",
+      "image": "/img/img/about/Expertise.png"
+    },
+    {
+      "title": "Innovation",
+      "content": "We stay ahead of the curve by continuously adopting and implementing the latest technologies.",
+      "image": "/img/img/about/Innovation.png"
+    },
+    {
+      "title": "Customer Focus",
+      "content": "We prioritize our clients' needs and work closely with them to deliver tailored solutions.",
+      "image": "/img/img/about/CustomerFocus.png"
+    },
+    {
+      "title": "Quality Assurance",
+      "content": "We maintain rigorous quality standards throughout our development process to ensure reliable and robust solutions.",
+      "image": "/img/img/about/QualityAssurance.png"
+    }
+  ],
+  "button": {
+    "title": "View Services",
+    "link": "/services"
+  }
+}
