@@ -43,8 +43,8 @@ export const useForm = (validate: { (values: IValues): IValues }) => {
 
         if (!response.ok) {
           notification["error"]({
-            message: i18n.t("Error"),
-            description: i18n.t("There was an error sending your message, please try again later."),
+            message: i18n.t("Error") as string,
+            description: i18n.t("There was an error sending your message, please try again later.") as string,
           });
         } else {
           event.target.reset();
@@ -54,15 +54,15 @@ export const useForm = (validate: { (values: IValues): IValues }) => {
           }));
 
           notification["success"]({
-            message: i18n.t("Success"),
-            description: i18n.t("Your message has been sent!"),
+            message: i18n.t("Success") as string,
+            description: i18n.t("Your message has been sent!") as string,
           });
         }
       }
     } catch (error) {
       notification["error"]({
-        message: i18n.t("Error"),
-        description: i18n.t("Failed to submit form. Please try again later."),
+        message: i18n.t("Error") as string,
+        description: i18n.t("Failed to submit form. Please try again later.") as string,
       });
     }
   };
