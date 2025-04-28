@@ -7,3 +7,8 @@
   NPM_FLAGS = "--legacy-peer-deps --no-audit"
   NODE_OPTIONS = "--openssl-legacy-provider"
   CI = "false" 
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
