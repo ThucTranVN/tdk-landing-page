@@ -6,6 +6,7 @@ import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
 import i18n from "i18next";
 import { useTheme } from "../../context/ThemeContext";
+import { useLocation } from "react-router-dom";
 import {
   HeaderSection,
   LogoContainer,
@@ -25,6 +26,8 @@ const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [language, setLanguage] = useState('en');
+  const location = useLocation();
+  const isPrivacyPage = location.pathname === "/privacy";
 
   const handleChange = (language: string) => {
     i18n.changeLanguage(language);
@@ -55,26 +58,30 @@ const Header = ({ t }: { t: TFunction }) => {
 
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("services")}>
-          <Span>{t("Services")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("solution")}>
-          <Span>{t("Solutions")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={openBlog}>
-          <Span>{t("Blog")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <Span>
-            <Button color="var(--primary-blue)">{t("Contact")}</Button>
-          </Span>
-        </CustomNavLinkSmall>
+        {!isPrivacyPage && (
+          <>
+            <CustomNavLinkSmall onClick={() => scrollTo("about")}>
+              <Span>{t("About")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={() => scrollTo("services")}>
+              <Span>{t("Services")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={() => scrollTo("solution")}>
+              <Span>{t("Solutions")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={openBlog}>
+              <Span>{t("Blog")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall
+              style={{ width: "180px" }}
+              onClick={() => scrollTo("contact")}
+            >
+              <Span>
+                <Button color="var(--primary-blue)">{t("Contact")}</Button>
+              </Span>
+            </CustomNavLinkSmall>
+          </>
+        )}
         <LanguageToggleContainer>
           <LanguageToggle onClick={() => handleChange(language === 'en' ? 'vi' : 'en')} aria-label="Toggle language">
             <SvgIcon
