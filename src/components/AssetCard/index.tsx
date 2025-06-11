@@ -3,6 +3,7 @@ import { Card, Tag, Button, Space } from "antd";
 import { DownloadOutlined, LinkOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import ProtectedDownload from "../ProtectedDownload";
 
 const { Meta } = Card;
 
@@ -273,15 +274,6 @@ const AssetCard: React.FC<AssetCardProps> = ({ title, link, category, downloadUr
     }
   };
 
-  const handleDownload = () => {
-    if (downloadUrl) {
-      window.open(downloadUrl, "_blank");
-    } else {
-      // If no download URL, open the asset store link
-      window.open(link, "_blank");
-    }
-  };
-
   return (
     <StyledCard>
       <CategoryTag color={getCategoryColor(category)}>
@@ -300,14 +292,10 @@ const AssetCard: React.FC<AssetCardProps> = ({ title, link, category, downloadUr
               </AssetLink>
             </AssetInfo>
             
-            <ActionButton 
-              type="primary" 
-              icon={<DownloadOutlined />} 
-              onClick={handleDownload}
-              size="small"
-            >
-              {t('assetCard.download', 'Download')}
-            </ActionButton>
+            <ProtectedDownload 
+              downloadUrl={downloadUrl || link}
+              fileName={title}
+            />
           </div>
         }
       />

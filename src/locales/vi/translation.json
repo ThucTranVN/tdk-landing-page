@@ -177,5 +177,14 @@
     "Page Not Found": "Không Tìm Thấy Trang",
     "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.": "Trang bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng.",
     "Go to Homepage": "Về Trang Chủ",
-    "Go Back": "Quay Lại"
+    "Go Back": "Quay Lại",
+    "Logout": "Đăng Xuất",
+    "Login Required": "Yêu Cầu Đăng Nhập",
+    "Please log in with your Google account to download this asset.": "Vui lòng đăng nhập bằng tài khoản Google để tải xuống tài sản này.",
+    "This helps us track downloads and provide better support.": "Điều này giúp chúng tôi theo dõi lượt tải xuống và cung cấp hỗ trợ tốt hơn.",
+    "OK": "OK",
+    "Download": "Tải Xuống",
+    "Login to Download": "Đăng Nhập Để Tải Xuống",
+    "Download started!": "Bắt đầu tải xuống!",
+    "Download failed. Please try again.": "Tải xuống thất bại. Vui lòng thử lại."
 }

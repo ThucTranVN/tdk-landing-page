@@ -4,6 +4,7 @@ import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
+import GoogleLogin from "../GoogleLogin";
 import i18n from "i18next";
 import { useTheme } from "../../context/ThemeContext";
 import { useLocation, useHistory } from "react-router-dom";
@@ -94,6 +95,7 @@ const Header = ({ t }: { t: TFunction }) => {
             </CustomNavLinkSmall>
           </>
         )}
+        {isResourcesPage && <GoogleLogin />}
         <LanguageToggleContainer>
           <LanguageToggle onClick={() => handleChange(language === 'en' ? 'vi' : 'en')} aria-label="Toggle language">
             <SvgIcon

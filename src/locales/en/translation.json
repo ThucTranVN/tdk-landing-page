@@ -184,5 +184,14 @@
   "Page Not Found": "Page Not Found",
   "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
   "Go to Homepage": "Go to Homepage",
-  "Go Back": "Go Back"
+  "Go Back": "Go Back",
+  "Logout": "Logout",
+  "Login Required": "Login Required",
+  "Please log in with your Google account to download this asset.": "Please log in with your Google account to download this asset.",
+  "This helps us track downloads and provide better support.": "This helps us track downloads and provide better support.",
+  "OK": "OK",
+  "Download": "Download",
+  "Login to Download": "Login to Download",
+  "Download started!": "Download started!",
+  "Download failed. Please try again.": "Download failed. Please try again."
 }
