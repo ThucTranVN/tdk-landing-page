@@ -6,7 +6,7 @@ import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
 import i18n from "i18next";
 import { useTheme } from "../../context/ThemeContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import {
   HeaderSection,
   LogoContainer,
@@ -27,7 +27,11 @@ const Header = ({ t }: { t: TFunction }) => {
   const { theme, toggleTheme } = useTheme();
   const [language, setLanguage] = useState('en');
   const location = useLocation();
+  const history = useHistory();
   const isPrivacyPage = location.pathname === "/privacy";
+  const isResourcesPage = location.pathname === "/resources";
+  const isTermsPage = location.pathname === "/termandcondition";
+  const isNotFoundPage = location.pathname !== "/" && location.pathname !== "/home" && location.pathname !== "/privacy" && location.pathname !== "/resources" && location.pathname !== "/termandcondition";
 
   const handleChange = (language: string) => {
     i18n.changeLanguage(language);
@@ -56,9 +60,14 @@ const Header = ({ t }: { t: TFunction }) => {
       setVisibility(false);
     };
 
+    const navigateToResources = () => {
+      history.push('/resources');
+      setVisibility(false);
+    };
+
     return (
       <>
-        {!isPrivacyPage && (
+        {!isPrivacyPage && !isResourcesPage && !isTermsPage && !isNotFoundPage && (
           <>
             <CustomNavLinkSmall onClick={() => scrollTo("about")}>
               <Span>{t("About")}</Span>
@@ -68,6 +77,9 @@ const Header = ({ t }: { t: TFunction }) => {
             </CustomNavLinkSmall>
             <CustomNavLinkSmall onClick={() => scrollTo("solution")}>
               <Span>{t("Solutions")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={navigateToResources}>
+              <Span>{t("Resources")}</Span>
             </CustomNavLinkSmall>
             <CustomNavLinkSmall onClick={openBlog}>
               <Span>{t("Blog")}</Span>

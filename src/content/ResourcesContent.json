@@ -1,0 +1,54 @@
+{
+  "title": "Resources",
+  "subtitle": "Empowering Your Success",
+  "description": "Discover our comprehensive collection of tools, guides, and resources designed to help you achieve your business goals and maximize your potential.",
+  "mainContent": {
+    "title": "Comprehensive Resources for Your Success",
+    "content": "Access our curated collection of tools, guides, and educational materials to support your journey towards excellence.",
+    "button": {
+      "title": "Explore Resources"
+    }
+  },
+  "tools": {
+    "title": "Development Tools",
+    "content": "Professional-grade tools and utilities to streamline your development workflow and enhance productivity.",
+    "items": [
+      {
+        "title": "Code Generators",
+        "content": "Automated code generation tools to accelerate development and reduce manual errors.",
+        "image": "/img/img/resourcesPage/CodeGenerator.png"
+      },
+      {
+        "title": "Testing Frameworks",
+        "content": "Comprehensive testing solutions to ensure code quality and reliability across all platforms.",
+        "image": "/img/img/resourcesPage/Testing.png"
+      },
+      {
+        "title": "Performance Analyzers",
+        "content": "Advanced analytics tools to monitor and optimize application performance in real-time.",
+        "image": "/img/img/resourcesPage/Performance.png"
+      }
+    ]
+  },
+  "guides": {
+    "title": "Educational Guides",
+    "content": "Step-by-step tutorials and best practices to help you master modern development techniques.",
+    "items": [
+      {
+        "title": "Getting Started",
+        "content": "Begin your journey with our comprehensive getting started guides and tutorials.",
+        "image": "/img/img/resourcesPage/GettingStarted.png"
+      },
+      {
+        "title": "Best Practices",
+        "content": "Learn industry-standard best practices and coding conventions for professional development.",
+        "image": "/img/img/resourcesPage/BestPractices.png"
+      },
+      {
+        "title": "Advanced Topics",
+        "content": "Deep dive into advanced concepts and techniques for experienced developers.",
+        "image": "/img/img/resourcesPage/Advanced.png"
+      }
+    ]
+  }
+} 

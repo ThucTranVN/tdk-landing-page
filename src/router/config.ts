@@ -9,6 +9,20 @@ const routes = [
     exact: true,
     component: "Privacy",
   },
+  {
+    path: "/resources",
+    exact: true,
+    component: "Resources",
+  },
+  {
+    path: "/termandcondition",
+    exact: true,
+    component: "TermsAndConditions",
+  },
+  {
+    path: "*",
+    component: "NotFound",
+  },
 ];
 
 export default routes;
