@@ -54,8 +54,8 @@ See [Docs/DEPLOYMENT.md](./Docs/DEPLOYMENT.md) for detailed deployment instructi
 
 1. **Configure environment variables** in your deployment platform:
    ```bash
-   REACT_APP_GOOGLE_CLIENT_ID=400270614956-5t2suj7g9udlsirvni3t6qtb8jn20be1.apps.googleusercontent.com
-   REACT_APP_GOOGLE_SHEETS_API_KEY=AIzaSyBqvJkR_SKTVAIIjq5d9wb26E8q0bYAnxM
+   REACT_APP_GOOGLE_CLIENT_ID=your_google_oauth_client_id_here.apps.googleusercontent.com
+   REACT_APP_GOOGLE_SHEETS_API_KEY=your_google_sheets_api_key_here
    ```
 
 2. **Update API key restrictions** in Google Cloud Console to include your production domain
