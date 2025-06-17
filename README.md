@@ -13,6 +13,7 @@ A modern, responsive landing page for TDK Technology Solutions built with React,
 - 🔐 Google OAuth integration
 - 📊 Google Sheets integration for dynamic content
 - 🎨 Modern UI with Ant Design components
+- 📱 Progressive Web App (PWA) - Installable and works offline
 
 ## Quick Start
 
@@ -72,6 +73,18 @@ See [Docs/DEPLOYMENT.md](./Docs/DEPLOYMENT.md) for detailed deployment instructi
 - **[GOOGLE_SHEETS_API_SETUP.md](./Docs/GOOGLE_SHEETS_API_SETUP.md)** - Google Sheets API configuration
 - **[GOOGLE_OAUTH_SETUP.md](./Docs/GOOGLE_OAUTH_SETUP.md)** - Google OAuth setup guide
 - **[GOOGLE_SHEETS_SETUP.md](./Docs/GOOGLE_SHEETS_SETUP.md)** - Original Google Sheets setup
+- **[PWA_SETUP.md](./Docs/PWA_SETUP.md)** - Progressive Web App configuration
+
+## PWA Features
+
+📱 **Progressive Web App:** This application is configured as a PWA with the following features:
+
+- **Installable** - Users can add to home screen
+- **Offline functionality** - Works without internet connection
+- **App-like experience** - Full-screen mode without browser UI
+- **Fast loading** - Cached assets for better performance
+
+See [Docs/PWA_SETUP.md](./Docs/PWA_SETUP.md) for detailed PWA configuration and testing instructions.
 
 ## Troubleshooting
 
@@ -88,6 +101,7 @@ If you're having issues with Google Sheets API or asset loading:
 - **"Failed to fetch sheet names"**: Verify Google Sheets API is enabled
 - **"No assets found"**: Check spreadsheet structure and permissions
 - **Production deployment issues**: See [Docs/DEPLOYMENT.md](./Docs/DEPLOYMENT.md)
+- **PWA installability issues**: See [Docs/PWA_SETUP.md](./Docs/PWA_SETUP.md)
 
 ## Available Scripts
 
