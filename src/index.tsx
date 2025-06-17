@@ -9,11 +9,15 @@ import 'antd/dist/antd.min.css';
 import Router from "./router";
 import i18n from "./translation";
 
-// Replace this with your actual Google OAuth Client ID
-const GOOGLE_CLIENT_ID = "400270614956-5t2suj7g9udlsirvni3t6qtb8jn20be1.apps.googleusercontent.com";
+// Get Google OAuth Client ID from environment variables
+const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+
+if (!GOOGLE_CLIENT_ID) {
+  console.error('REACT_APP_GOOGLE_CLIENT_ID is not set in environment variables');
+}
 
 const App = () => (
-  <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+  <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID || ""}>
     <BrowserRouter>
       <I18nextProvider i18n={i18n}>
         <ThemeProvider>

@@ -8,14 +8,19 @@ import "./styles/global.css"; // Import global styles
 import Home from "./pages/Home";
 import Resources from "./pages/Resources";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
-// Replace this with your actual Google OAuth Client ID
-const GOOGLE_CLIENT_ID = "400270614956-5t2suj7g9udlsirvni3t6qtb8jn20be1.apps.googleusercontent.com";
+// Get Google OAuth Client ID from environment variables
+const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+
+if (!GOOGLE_CLIENT_ID) {
+  console.error('REACT_APP_GOOGLE_CLIENT_ID is not set in environment variables');
+}
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID || ""}>
       <ThemeProvider>
         <AuthProvider>
           <GlobalStyles />
@@ -24,6 +29,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/resources" component={Resources} />
               <Route path="/termandcondition" component={TermsAndConditions} />
+              <Route path="/privacy" component={Privacy} />
               <Route path="*" component={NotFound} />
             </Switch>
           </Router>

@@ -21,12 +21,28 @@ interface UnityAssetsData {
 }
 
 // Google Sheets API Configuration
-const API_KEY = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY || 'AIzaSyBqvJkR_SKTVAIIjq5d9wb26E8q0bYAnxM';
+const API_KEY = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY;
+// Correct spreadsheet ID that's actually working
 const SPREADSHEET_ID = '1eNcgtpMnuypYd1u-fsY2AuO5DUlhVoO39ODS7CJnbo8';
 const RANGE = 'A2:D200'; // Skip header row, fetch up to 200 rows
 
+// Check if API key is available
+if (!API_KEY) {
+  console.warn('REACT_APP_GOOGLE_SHEETS_API_KEY is not set in environment variables. Google Sheets functionality will be limited.');
+} else {
+  console.log('Google Sheets API key is configured');
+  // Check if the API key matches the one in .env.local
+  if (API_KEY === process.env.REACT_APP_GOOGLE_SHEETS_API_KEY) {
+    console.log('✅ Using the API key from .env.local');
+  }
+}
+
 // Function to get all sheet names from the spreadsheet
 const getAllSheetNames = async (): Promise<string[]> => {
+  if (!API_KEY) {
+    throw new Error('Google Sheets API key is not configured');
+  }
+
   try {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}?key=${API_KEY}&fields=sheets.properties.title`;
     
@@ -35,6 +51,9 @@ const getAllSheetNames = async (): Promise<string[]> => {
     const response = await fetch(url);
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('API Response Error:', response.status, response.statusText);
+      console.error('Error Details:', errorText);
       throw new Error(`Failed to fetch sheet names: ${response.status} ${response.statusText}`);
     }
     
@@ -58,6 +77,10 @@ const getAllSheetNames = async (): Promise<string[]> => {
 
 // Function to fetch data from a specific sheet
 const fetchDataFromSheet = async (sheetName: string): Promise<UnityAsset[]> => {
+  if (!API_KEY) {
+    throw new Error('Google Sheets API key is not configured');
+  }
+
   try {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${sheetName}!${RANGE}?key=${API_KEY}`;
     
@@ -66,6 +89,9 @@ const fetchDataFromSheet = async (sheetName: string): Promise<UnityAsset[]> => {
     const response = await fetch(url);
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`API Response Error for sheet "${sheetName}":`, response.status, response.statusText);
+      console.error('Error Details:', errorText);
       console.warn(`Failed to fetch data from sheet "${sheetName}": ${response.status} ${response.statusText}`);
       return [];
     }
@@ -82,7 +108,7 @@ const fetchDataFromSheet = async (sheetName: string): Promise<UnityAsset[]> => {
     // Process the data
     const assets: UnityAsset[] = [];
     
-    data.values.forEach((row: string[]) => {
+    data.values.forEach((row: string[], index: number) => {
       if (row.length >= 3) {
         const [title, link, category, downloadUrl] = row;
         
@@ -94,7 +120,11 @@ const fetchDataFromSheet = async (sheetName: string): Promise<UnityAsset[]> => {
             category: category.trim(),
             downloadUrl: downloadUrl ? downloadUrl.trim() : ''
           });
+        } else {
+          console.warn(`Skipping row ${index + 2} (${index + 1} in data): Missing required fields`, row);
         }
+      } else {
+        console.warn(`Skipping row ${index + 2} (${index + 1} in data): Insufficient columns`, row);
       }
     });
     
@@ -108,8 +138,18 @@ const fetchDataFromSheet = async (sheetName: string): Promise<UnityAsset[]> => {
 
 export const fetchUnityAssetsFromGoogleSheets = async (): Promise<UnityAssetsData> => {
   try {
+    // Check if API key is available
+    if (!API_KEY) {
+      console.warn('Google Sheets API key not available, using fallback data');
+      return fetchUnityAssetsFallback();
+    }
+
+    console.log('Starting to fetch Unity assets from Google Sheets...');
+    console.log('Spreadsheet ID:', SPREADSHEET_ID);
+
     // First, get all sheet names
     const sheetNames = await getAllSheetNames();
+    console.log('Found sheets:', sheetNames);
     
     // Fetch data from all sheets
     const allAssets: UnityAsset[] = [];
@@ -120,6 +160,11 @@ export const fetchUnityAssetsFromGoogleSheets = async (): Promise<UnityAssetsDat
     }
     
     console.log(`Total assets fetched from all sheets: ${allAssets.length}`);
+    
+    if (allAssets.length === 0) {
+      console.warn('No assets found in any sheets, using fallback data');
+      return fetchUnityAssetsFallback();
+    }
     
     // Group assets by category
     const categories: { [key: string]: AssetCategory } = {};
@@ -135,6 +180,8 @@ export const fetchUnityAssetsFromGoogleSheets = async (): Promise<UnityAssetsDat
       categories[asset.category].assets.push(asset);
     });
     
+    console.log('Categories created:', Object.keys(categories));
+    
     return {
       title: "Unity Asset Resources",
       subtitle: "Professional Game Development Assets",
@@ -144,12 +191,14 @@ export const fetchUnityAssetsFromGoogleSheets = async (): Promise<UnityAssetsDat
     
   } catch (error) {
     console.error('Error fetching Unity assets from Google Sheets:', error);
-    throw error;
+    // Return fallback data if there's an error
+    return fetchUnityAssetsFallback();
   }
 };
 
 // Fallback function for when API key is not available
 export const fetchUnityAssetsFallback = async (): Promise<UnityAssetsData> => {
+  console.log('Using fallback data - no API key or API error occurred');
   // Return a basic structure when API is not available
   return {
     title: "Unity Asset Resources",

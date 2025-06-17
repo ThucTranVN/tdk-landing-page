@@ -1,2 +1,109 @@
 [![Live Status](https://api.netlify.com/api/v1/badges/809534d6-d814-449f-a5b1-6839ea749cfd/deploy-status)](https://app.netlify.com/sites/tdk-landing-page/deploys)
 ![Alt](https://repobeats.axiom.co/api/embed/1829da821be0f91393cda8b77e94d9bfe46146b0.svg "Repobeats analytics image")
+
+# TDK Landing Page
+
+A modern, responsive landing page for TDK Technology Solutions built with React, TypeScript, and Ant Design.
+
+## Features
+
+- 🌙 Dark/Light theme support
+- 🌍 Internationalization (i18n)
+- 📱 Responsive design
+- 🔐 Google OAuth integration
+- 📊 Google Sheets integration for dynamic content
+- 🎨 Modern UI with Ant Design components
+
+## Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd tdk-landing-page
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   ```bash
+   cp env.example .env.local
+   # Edit .env.local with your actual API keys
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm start
+   ```
+
+## Security Setup
+
+⚠️ **Important:** This project uses environment variables for sensitive information like API keys and client IDs.
+
+See [Docs/SECURITY.md](./Docs/SECURITY.md) for detailed setup instructions.
+
+## Deployment
+
+🚀 **Production Deployment:** Environment variables must be configured on your deployment platform.
+
+See [Docs/DEPLOYMENT.md](./Docs/DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deployment Steps:
+
+1. **Configure environment variables** in your deployment platform:
+   ```bash
+   REACT_APP_GOOGLE_CLIENT_ID=400270614956-5t2suj7g9udlsirvni3t6qtb8jn20be1.apps.googleusercontent.com
+   REACT_APP_GOOGLE_SHEETS_API_KEY=AIzaSyBqvJkR_SKTVAIIjq5d9wb26E8q0bYAnxM
+   ```
+
+2. **Update API key restrictions** in Google Cloud Console to include your production domain
+
+3. **Deploy your application**
+
+## Documentation
+
+📚 **Complete documentation is available in the [Docs](./Docs/) folder:**
+
+- **[SECURITY.md](./Docs/SECURITY.md)** - Security setup and best practices
+- **[DEPLOYMENT.md](./Docs/DEPLOYMENT.md)** - Production deployment guide
+- **[TROUBLESHOOTING.md](./Docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[GOOGLE_SHEETS_API_SETUP.md](./Docs/GOOGLE_SHEETS_API_SETUP.md)** - Google Sheets API configuration
+- **[GOOGLE_OAUTH_SETUP.md](./Docs/GOOGLE_OAUTH_SETUP.md)** - Google OAuth setup guide
+- **[GOOGLE_SHEETS_SETUP.md](./Docs/GOOGLE_SHEETS_SETUP.md)** - Original Google Sheets setup
+
+## Troubleshooting
+
+If you're having issues with Google Sheets API or asset loading:
+
+1. **Check the troubleshooting guide:** [Docs/TROUBLESHOOTING.md](./Docs/TROUBLESHOOTING.md)
+2. **Verify environment variables** are properly set
+3. **Check browser console** for error messages
+4. **Ensure Google Sheets API** is enabled in Google Cloud Console
+
+### Common Issues
+
+- **"Using fallback data" warning**: Check your API key configuration
+- **"Failed to fetch sheet names"**: Verify Google Sheets API is enabled
+- **"No assets found"**: Check spreadsheet structure and permissions
+- **Production deployment issues**: See [Docs/DEPLOYMENT.md](./Docs/DEPLOYMENT.md)
+
+## Available Scripts
+
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+- `npm run eject` - Eject from Create React App
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.

@@ -21,6 +21,13 @@ import {
 } from "./styles";
 
 const Footer = ({ t }: { t: TFunction }) => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <>
       <FooterSection>
@@ -97,7 +104,21 @@ const Footer = ({ t }: { t: TFunction }) => {
               <CopyrightInfo>
                 <div>© {t("TDK TECHNOLOGY SOLUTIONS")}</div>
                 <div>{t("Business license")}: 0316115790</div>
-                {/* <NavLink to="/privacy">{t("Privacy Policy")}</NavLink> */}
+                <div style={{ marginTop: "0.5rem" }}>
+                  <NavLink 
+                    to="/privacy" 
+                    style={{ marginRight: "1rem" }}
+                    onClick={scrollToTop}
+                  >
+                    {t("Privacy Policy")}
+                  </NavLink>
+                  <NavLink 
+                    to="/termandcondition"
+                    onClick={scrollToTop}
+                  >
+                    {t("Terms & Conditions")}
+                  </NavLink>
+                </div>
               </CopyrightInfo>
             </FooterContainer>
           </Row>
