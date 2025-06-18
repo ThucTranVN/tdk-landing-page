@@ -5,6 +5,26 @@ const routes = [
     component: "Home",
   },
   {
+    path: "/product/penguinpuzzle/privacy",
+    exact: true,
+    component: "Privacy",
+  },
+  {
+    path: "/product/penguinpuzzle/termandcondition",
+    exact: true,
+    component: "TermsAndConditions",
+  },
+  {
+    path: "/product/penguinpuzzle",
+    exact: true,
+    component: "PenguinPuzzle",
+  },
+  {
+    path: "/product",
+    exact: true,
+    component: "Product",
+  },
+  {
     path: "/privacy",
     exact: true,
     component: "Privacy",

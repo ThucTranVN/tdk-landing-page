@@ -82,6 +82,9 @@ const Header = ({ t }: { t: TFunction }) => {
             <CustomNavLinkSmall onClick={navigateToResources}>
               <Span>{t("Resources")}</Span>
             </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={() => history.push('/product')}>
+              <Span>{t("Product")}</Span>
+            </CustomNavLinkSmall>
             <CustomNavLinkSmall onClick={openBlog}>
               <Span>{t("Blog")}</Span>
             </CustomNavLinkSmall>

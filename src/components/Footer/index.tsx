@@ -105,6 +105,7 @@ const Footer = ({ t }: { t: TFunction }) => {
                 <div>© {t("TDK TECHNOLOGY SOLUTIONS")}</div>
                 <div>{t("Business license")}: 0316115790</div>
                 <div style={{ marginTop: "0.5rem" }}>
+                  {/*
                   <NavLink 
                     to="/privacy" 
                     style={{ marginRight: "1rem" }}
@@ -118,6 +119,7 @@ const Footer = ({ t }: { t: TFunction }) => {
                   >
                     {t("Terms & Conditions")}
                   </NavLink>
+                  */}
                 </div>
               </CopyrightInfo>
             </FooterContainer>
