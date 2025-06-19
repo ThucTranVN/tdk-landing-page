@@ -1,9 +1,7 @@
 // Service Worker for TDK Landing Page PWA
-const CACHE_NAME = 'tdk-landing-page-v1';
+const CACHE_NAME = 'tdk-landing-page-v2';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
   '/manifest.json',
   '/img/favicon/android-icon-192x192.png',
   '/img/favicon/android-icon-144x144.png'
