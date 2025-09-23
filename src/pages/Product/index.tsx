@@ -60,6 +60,21 @@ const Product = ({ t }: { t: TFunction }) => {
     downloadUrl: "https://play.google.com/store/apps/details?id=com.TDK.Penguin.Puzzle"
   };
 
+  const jumpoEnglishCard = {
+    title: t("product.jumpoEnglishTitle"),
+    description: t("product.jumpoEnglishDescription"),
+    features: [
+      t("product.jumpoEnglishFeature1"),
+      t("product.jumpoEnglishFeature2"),
+      t("product.jumpoEnglishFeature3"),
+      t("product.jumpoEnglishFeature4")
+    ],
+    developer: "ThucTran",
+    category: t("product.jumpoEnglishCategory"),
+    rating: t("product.jumpoEnglishRating"),
+    downloadUrl: "https://play.google.com/store/apps/details?id=com.TDK.JumpoEnglish"
+  };
+
   const cashewCard = {
     title: t("product.nhtnTitle"),
     subtitle: t("product.nhtnSubtitle"),
@@ -171,27 +186,198 @@ const Product = ({ t }: { t: TFunction }) => {
                     <div style={{ fontWeight: "bold", color: "var(--text-color)" }}>{gameCard.rating}</div>
                   </div>
                 </div>
-                <Button
-                  type="primary"
-                  size="middle"
-                  style={{
-                    width: "100%",
-                    height: "40px",
-                    borderRadius: "6px",
-                    background: theme === 'dark' ? "linear-gradient(135deg, #232b3b 0%, #3a3f5a 100%)" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    border: "none",
-                    fontSize: "0.9rem",
-                    fontWeight: "bold",
-                    marginTop: "0.5rem",
-                    color: theme === 'dark' ? '#fff' : undefined
-                  }}
-                  onClick={e => {
-                    e.stopPropagation();
-                    window.open(gameCard.downloadUrl, '_blank');
-                  }}
-                >
-                  {t('product.downloadOnGooglePlay')}
-                </Button>
+                <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+                  <Button
+                    type="primary"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "40px",
+                      borderRadius: "6px",
+                      background: theme === 'dark' ? "linear-gradient(135deg, #232b3b 0%, #3a3f5a 100%)" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                      border: "none",
+                      fontSize: "0.9rem",
+                      fontWeight: "bold",
+                      color: theme === 'dark' ? '#fff' : undefined
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      window.open(gameCard.downloadUrl, '_blank');
+                    }}
+                  >
+                    {t('product.downloadOnGooglePlay')}
+                  </Button>
+                </div>
+                
+                <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+                  <Button
+                    type="default"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "32px",
+                      borderRadius: "6px",
+                      fontSize: "0.8rem",
+                      borderColor: theme === 'dark' ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+                      color: "var(--text-light)"
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      history.push('/product/penguinpuzzle/privacy');
+                    }}
+                  >
+                    {t("Privacy Policy")}
+                  </Button>
+                  <Button
+                    type="default"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "32px",
+                      borderRadius: "6px",
+                      fontSize: "0.8rem",
+                      borderColor: theme === 'dark' ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+                      color: "var(--text-light)"
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      history.push('/product/penguinpuzzle/termandcondition');
+                    }}
+                  >
+                    {t("Terms & Conditions")}
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </Col>
+          
+          <Col xs={24} sm={20} md={16} lg={12} xl={10}>
+            <Card
+              hoverable
+              style={{ 
+                borderRadius: "12px", 
+                boxShadow: theme === 'dark' ? "0 4px 16px rgba(255,255,255,0.05)" : "0 4px 16px rgba(0,0,0,0.1)",
+                overflow: "hidden",
+                height: "100%",
+                cursor: "pointer",
+                background: "var(--background-light)",
+                color: "var(--text-color)"
+              }}
+              onClick={() => history.push('/product/jumpoenglish')}
+              cover={
+                <div style={{ 
+                  background: theme === 'dark' ? "linear-gradient(135deg, #2d4a2d 0%, #4a6b4a 100%)" : "linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)",
+                  padding: "1.5rem",
+                  textAlign: "center"
+                }}>
+                  <img
+                    src="/img/icons/LogoJumpoEnglish.png"
+                    alt={t("product.jumpoEnglishTitle")}
+                    style={{ width: "60px", height: "60px", objectFit: "contain" }}
+                  />
+                </div>
+              }
+            >
+              <div style={{ padding: "0.75rem 0" }}>
+                <p style={{ fontSize: "0.9rem", lineHeight: "1.5", marginBottom: "1rem", color: "var(--text-light)" }}>
+                  {jumpoEnglishCard.description}
+                </p>
+                
+                <div style={{ marginBottom: "1rem" }}>
+                  <h4 style={{ marginBottom: "0.5rem", color: "var(--text-color)", fontSize: "1rem" }}>{t("product.keyFeatures")}</h4>
+                  <ul style={{ paddingLeft: "1.25rem", margin: 0, fontSize: "0.85rem", color: "var(--text-light)" }}>
+                    {jumpoEnglishCard.features.map((feature, index) => (
+                      <li key={index} style={{ marginBottom: "0.25rem", lineHeight: "1.4" }}>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "space-between", 
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                  padding: "0.75rem",
+                  background: "var(--background-grey)",
+                  borderRadius: "6px",
+                  fontSize: "0.8rem"
+                }}>
+                  <div>
+                    <div style={{ color: "var(--text-light)" }}>{t("product.developer")}</div>
+                    <div style={{ fontWeight: "bold", color: "var(--text-color)" }}>{jumpoEnglishCard.developer}</div>
+                  </div>
+                  <div>
+                    <div style={{ color: "var(--text-light)" }}>{t("product.appCategory")}</div>
+                    <div style={{ fontWeight: "bold", color: "var(--text-color)" }}>{jumpoEnglishCard.category}</div>
+                  </div>
+                  <div>
+                    <div style={{ color: "var(--text-light)" }}>{t("product.rating")}</div>
+                    <div style={{ fontWeight: "bold", color: "var(--text-color)" }}>{jumpoEnglishCard.rating}</div>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+                  <Button
+                    type="primary"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "40px",
+                      borderRadius: "6px",
+                      background: theme === 'dark' ? "linear-gradient(135deg, #2d4a2d 0%, #4a6b4a 100%)" : "linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)",
+                      border: "none",
+                      fontSize: "0.9rem",
+                      fontWeight: "bold",
+                      color: theme === 'dark' ? '#fff' : undefined
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      window.open(jumpoEnglishCard.downloadUrl, '_blank');
+                    }}
+                  >
+                    {t('product.downloadOnGooglePlay')}
+                  </Button>
+                </div>
+                
+                <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+                  <Button
+                    type="default"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "32px",
+                      borderRadius: "6px",
+                      fontSize: "0.8rem",
+                      borderColor: theme === 'dark' ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+                      color: "var(--text-light)"
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      history.push('/product/jumpoenglish/privacy');
+                    }}
+                  >
+                    {t("Privacy Policy")}
+                  </Button>
+                  <Button
+                    type="default"
+                    size="middle"
+                    style={{
+                      flex: 1,
+                      height: "32px",
+                      borderRadius: "6px",
+                      fontSize: "0.8rem",
+                      borderColor: theme === 'dark' ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+                      color: "var(--text-light)"
+                    }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      history.push('/product/jumpoenglish/termandcondition');
+                    }}
+                  >
+                    {t("Terms & Conditions")}
+                  </Button>
+                </div>
               </div>
             </Card>
           </Col>

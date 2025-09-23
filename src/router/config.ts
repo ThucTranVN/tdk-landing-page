@@ -20,6 +20,21 @@ const routes = [
     component: "PenguinPuzzle",
   },
   {
+    path: "/product/jumpoenglish/privacy",
+    exact: true,
+    component: "JumpoEnglishPrivacy",
+  },
+  {
+    path: "/product/jumpoenglish/termandcondition",
+    exact: true,
+    component: "JumpoEnglishTermsAndConditions",
+  },
+  {
+    path: "/product/jumpoenglish",
+    exact: true,
+    component: "JumpoEnglish",
+  },
+  {
     path: "/product",
     exact: true,
     component: "Product",
