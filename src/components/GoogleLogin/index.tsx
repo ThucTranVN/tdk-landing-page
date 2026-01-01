@@ -118,7 +118,6 @@ const GoogleLogin: React.FC<{ t: any }> = ({ t }) => {
         size="large"
         text="signin_with"
         shape="rectangular"
-        locale="en"
       />
     </LoginContainer>
   );

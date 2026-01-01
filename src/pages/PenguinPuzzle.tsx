@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { withTranslation } from "react-i18next";
-import { TFunction } from "react-i18next";
+import { TFunction } from "i18next";
 
 const Container = lazy(() => import("../common/Container"));
 const ScrollToTop = lazy(() => import("../common/ScrollToTop"));

@@ -1,6 +1,6 @@
 import { lazy, useEffect } from "react";
 import { withTranslation } from "react-i18next";
-import { TFunction } from "react-i18next";
+import { TFunction } from "i18next";
 import { Row, Col, Card, Button, Divider } from "antd";
 import { SvgIcon } from "../../common/SvgIcon";
 import { useHistory } from "react-router-dom";

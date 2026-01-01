@@ -1,5 +1,6 @@
 import { Row, Col } from "antd";
-import { withTranslation, TFunction } from "react-i18next";
+import { withTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
 import footerContent from "../../content/FooterContent.json";
